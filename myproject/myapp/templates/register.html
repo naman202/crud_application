@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/myapp/addmission/" method="POST">
+
+        {% csrf_token %}
+
+        <!-- Name <input type="text" name="name" id=""> -->
+        <!-- Mobile No. <input type="text" name="mobile" id=""> -->
+        <!-- E-mail <input type="text" name="email" id=""> -->
+        Username <input type="text" name="username" id="">
+        Password <input type="text" name="password" id="">
+
+        <input type="submit" value="Rigister">
+        <input type="submit" value="Cancel">
+
+    </form>
+    
+</body>
+</html>

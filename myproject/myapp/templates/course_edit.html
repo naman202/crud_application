@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <center>
+        <h1>Course Edit</h1>
+    </center>
+
+    {% for x in obj %}
+    <form action="/myapp/update_course/{{x.0}}" method="POST">
+
+        {% csrf_token %}
+
+            Course Name <input type="text" name="name" value="{{x.1}}">
+            Course Duration <input type="text" name="duration" value="{{x.2}}">
+            Course fees <input type="text" name="fees" value="{{x.3}}">
+            <input type="submit" value="save">
+        {% endfor %}
+
+    </form>
+    
+</body>
+</html>

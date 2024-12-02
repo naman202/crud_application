@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>WELCOME ADMIN</h1>
+    <form action="/myapp/course_dekho/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="course">
+    </form>
+
+    <form action="/myapp/view_subject/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Subject">
+    </form>
+
+    <form action="/myapp/student_list/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Student List">
+    </form>
+    
+</body>
+</html>

@@ -19,4 +19,7 @@ urlpatterns = [
     path("edit_course/<int:id>",views.edit_course),
     path("update_course/<int:id>",views.update_course),
     path("delete_course/<int:id>",views.delete_course),
+    path("edit_subject/<int:id>",views.edit_subject),
+    path("subject_edit/",views.subject_edit),
+    path("add_subject/",views.add_subject),
 ]

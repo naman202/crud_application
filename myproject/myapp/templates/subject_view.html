@@ -25,6 +25,22 @@
         </p>
         <div class="collapse" id="web_development">
             <div class="card card-body">
+                
+                <form action="/myapp/add_subject/" method="POST">
+
+                    {% csrf_token %}
+
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#add">
+                            Add New Subject</a>
+                    
+                    <div class="collapse" id="add">
+                        <div class="card card-body">
+                            Course Name <input type="text" name="web_development" id="">
+                            <input type="submit" value="save">
+                        </div>
+                    </div>
+                </form>
+
                 <table class="table table-striped">
                     <thead>
                         <th class="col">Subject Name</th>
@@ -36,6 +52,8 @@
                             <td>
                                 {{x.1}}
                             </td>
+                            <td><a href=""  class="btn btn-warning">Edit</a></td>
+                            <td><a href="" class="btn btn-danger">Delete</a></td>
                             {% endfor %} 
                         </tr>
                         

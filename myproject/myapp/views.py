@@ -203,6 +203,48 @@ def view_subject(request):
         mydb.commit()
         return render(request,"subject_view.html",{'obj':row})
 
+
+def subject_edit(request):
+    return render(request,"subject_edit.html")
+
+def edit_subject(request,id):
+     mydb=mysql.connector.connect(
+          host="localhost",
+          user="root",
+          password="",
+          database="school",
+     )
+     mycur=mydb.cursor()
+     sql="select * from subject where id=%s"
+     val=(id,)
+     mycur.execute(sql,val)
+     row=mycur.fetchall()
+     mydb.commit()
+     return render(request,"subject_edit.html",{'obj':row})
+
+def add_subject(request):
+    if request.method=='POST':
+            web_development = request.POST['web_development']
+            mydb = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="",
+                database="school",
+)
+            
+            mycur = mydb.cursor()
+            sql = "insert into subject(web_developement)values(%s)"
+            val = (web_development)
+            mycur.execute(sql,val)
+            mydb.commit()
+            mycur=mydb.cursor()
+            sql = "select * from subject"
+            mycur.execute(sql)
+            row = mycur.fetchall()
+            mydb.commit()
+            return render(request,"subject_view.html",{'obj':row})
+
+
 def student(request):
      return render(request,"student_list.html")
 

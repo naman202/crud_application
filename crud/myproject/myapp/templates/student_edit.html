@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5cb85c;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <center>
+            <h1>Student Edit</h1>
+        </center>
+
+        {% for x in obj %}
+        <form action="/myapp/update_student/{{x.0}}" method="POST">
+
+            {% csrf_token %}
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="{{x.1}}">
+            
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" value="{{x.2}}">
+            
+            <!-- <label for="fees">Course Fees</label>
+            <input type="text" id="fees" name="fees" value="{{x.3}}"> -->
+            
+            <input type="submit" value="Save">
+        {% endfor %}
+
+        </form>
+    </div>
+    
+</body>
+</html>
